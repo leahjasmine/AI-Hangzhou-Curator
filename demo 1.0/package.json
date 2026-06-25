@@ -1,0 +1,23 @@
+{
+  "name": "ai-hangzhou-cultural-tourism-curator",
+  "version": "1.0.0",
+  "description": "AI杭州文旅策展人：杭州个体化文旅定制系统",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "hangzhou",
+    "tourism",
+    "ai",
+    "curator"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}
