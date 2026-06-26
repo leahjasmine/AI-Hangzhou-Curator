@@ -1,0 +1,310 @@
+/* 设计增强层：参考图文资料中的海报化卡片、瀑布流节奏、竖排小字与悬浮控件 */
+body {
+  background-attachment: fixed;
+}
+
+.site-shell {
+  position: relative;
+}
+
+.site-shell::before,
+.site-shell::after {
+  position: fixed;
+  z-index: -1;
+  pointer-events: none;
+  font-family: var(--latin-font);
+  font-size: clamp(72px, 11vw, 180px);
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  line-height: 0.8;
+  color: rgba(28, 33, 28, 0.035);
+}
+
+.site-shell::before {
+  content: "HANGZHOU";
+  left: -2vw;
+  top: 18vh;
+  transform: rotate(-8deg);
+}
+
+.site-shell::after {
+  content: "CURATOR";
+  right: -3vw;
+  bottom: 10vh;
+  writing-mode: vertical-rl;
+}
+
+.navbar {
+  outline: 1px solid rgba(255, 255, 255, 0.48);
+}
+
+.hero-copy {
+  position: relative;
+}
+
+.hero-copy::after {
+  position: absolute;
+  right: 4%;
+  bottom: -54px;
+  content: "WEST LAKE / GRAND CANAL / LONGJING";
+  padding: 10px 14px;
+  border: 1px dashed rgba(28, 33, 28, 0.22);
+  border-radius: 999px;
+  color: var(--muted);
+  font-family: var(--latin-font);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  transform: rotate(-3deg);
+}
+
+.hero-board {
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: start;
+}
+
+.hero-board > * {
+  min-width: 0;
+}
+
+.big-card {
+  position: relative;
+  grid-column: 1 / -1;
+  overflow: hidden;
+}
+
+.big-card::after {
+  position: absolute;
+  right: -18px;
+  bottom: -18px;
+  content: "01";
+  color: rgba(28, 33, 28, 0.06);
+  font-family: var(--latin-font);
+  font-size: 132px;
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  line-height: 1;
+}
+
+.bubble-card {
+  z-index: 2;
+}
+
+.mini-card {
+  z-index: 1;
+}
+
+.ip-character-card {
+  grid-column: 1 / 2;
+}
+
+.city-mascot {
+  grid-column: 2 / 3;
+}
+
+.feature-grid {
+  grid-template-columns: 1.15fr 0.85fr 1fr 0.9fr;
+  align-items: stretch;
+}
+
+.feature-grid .feature-card:nth-child(1),
+.feature-grid .feature-card:nth-child(4) {
+  min-height: 280px;
+}
+
+.feature-grid .feature-card:nth-child(2) {
+  transform: translateY(28px);
+}
+
+.feature-grid .feature-card:nth-child(3) {
+  transform: translateY(-18px);
+}
+
+.feature-grid .feature-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-action {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.24s ease, transform 0.36s var(--elastic-soft), background 0.24s ease;
+}
+
+.feature-card:hover .card-action,
+.feature-card:focus-within .card-action {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.curator-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.curator-panel::before {
+  position: absolute;
+  top: 22px;
+  right: 24px;
+  content: "AI DESK";
+  color: rgba(28, 33, 28, 0.08);
+  font-family: var(--latin-font);
+  font-size: 46px;
+  font-weight: 900;
+  letter-spacing: -0.08em;
+}
+
+.inspiration-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.inspiration-grid article {
+  position: relative;
+  overflow: hidden;
+}
+
+.inspiration-grid article:nth-child(odd) {
+  transform: translateY(18px);
+}
+
+.inspiration-grid article:nth-child(2),
+.inspiration-grid article:nth-child(5) {
+  min-height: 190px;
+}
+
+.inspiration-grid article strong {
+  position: relative;
+  z-index: 1;
+}
+
+.inspiration-grid article span {
+  position: relative;
+  z-index: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.inspiration-grid article::after {
+  position: absolute;
+  inset: auto -20px -34px auto;
+  content: attr(data-index);
+  width: 88px;
+  height: 88px;
+  border: 1px dashed rgba(28, 33, 28, 0.2);
+  border-radius: 999px;
+  opacity: 0.6;
+}
+
+.showcase-section {
+  position: relative;
+}
+
+.showcase-section::before {
+  position: absolute;
+  left: -34px;
+  top: 96px;
+  content: "预览";
+  writing-mode: vertical-rl;
+  padding: 12px 8px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fffdf5;
+  font-family: var(--display-font);
+  font-size: 18px;
+  letter-spacing: -0.06em;
+}
+
+:lang(en) .showcase-section::before {
+  content: "PREVIEW";
+  font-family: var(--latin-font);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.showcase-grid {
+  grid-template-columns: 1.25fr 0.85fr 1fr;
+}
+
+.showcase-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.showcase-card:nth-child(1) {
+  min-height: 290px;
+}
+
+.showcase-card:nth-child(2) {
+  margin-top: 42px;
+}
+
+.showcase-card:nth-child(3) {
+  min-height: 250px;
+}
+
+.showcase-card::after {
+  position: absolute;
+  right: -24px;
+  bottom: -34px;
+  content: "→";
+  color: rgba(28, 33, 28, 0.08);
+  font-family: var(--latin-font);
+  font-size: 120px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.about-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-section::after {
+  position: absolute;
+  right: 28px;
+  bottom: 22px;
+  content: "COURSE PROJECT";
+  color: rgba(28, 33, 28, 0.08);
+  font-family: var(--latin-font);
+  font-size: 38px;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+}
+
+@media (max-width: 940px) {
+  .hero-board,
+  .feature-grid,
+  .inspiration-grid,
+  .showcase-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .big-card,
+  .ip-character-card,
+  .city-mascot {
+    grid-column: auto;
+  }
+
+  .feature-grid .feature-card:nth-child(2),
+  .feature-grid .feature-card:nth-child(3),
+  .inspiration-grid article:nth-child(odd),
+  .showcase-card:nth-child(2) {
+    transform: none;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 620px) {
+  .hero-board,
+  .feature-grid,
+  .inspiration-grid,
+  .showcase-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy::after,
+  .showcase-section::before {
+    display: none;
+  }
+}
