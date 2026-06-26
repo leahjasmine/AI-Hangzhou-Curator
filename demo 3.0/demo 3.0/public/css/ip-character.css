@@ -1,0 +1,325 @@
+.ip-character-card {
+  position: relative;
+  justify-self: start;
+  width: min(330px, 88%);
+  margin-top: -24px;
+  padding: 16px 16px 14px;
+  border: 1px solid rgba(28, 33, 28, 0.14);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 18% 16%, rgba(255, 244, 92, 0.95), transparent 34%),
+    radial-gradient(circle at 86% 22%, rgba(255, 101, 178, 0.88), transparent 30%),
+    radial-gradient(circle at 50% 88%, rgba(79, 220, 152, 0.82), transparent 36%),
+    rgba(255, 255, 255, 0.76);
+  box-shadow: 0 24px 66px rgba(56, 66, 53, 0.16);
+  overflow: hidden;
+  backdrop-filter: blur(18px);
+  animation: ipCardEnter 0.86s var(--elastic-soft) both;
+  animation-delay: 0.22s;
+}
+
+.ip-character-card::before {
+  position: absolute;
+  right: -32px;
+  top: -36px;
+  width: 116px;
+  height: 116px;
+  content: "";
+  border: 4px solid rgba(28, 33, 28, 0.86);
+  border-radius: 999px;
+  background: rgba(255, 253, 245, 0.52);
+  transform: rotate(14deg);
+}
+
+.ip-character {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  filter: drop-shadow(0 16px 18px rgba(28, 33, 28, 0.16));
+}
+
+.ip-character-card figcaption {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: -8px;
+}
+
+.ip-character-card figcaption strong,
+.ip-character-card figcaption span {
+  display: block;
+}
+
+.ip-character-card figcaption strong {
+  font-family: var(--display-font);
+  font-size: 28px;
+  line-height: 0.96;
+  letter-spacing: -0.08em;
+}
+
+.ip-character-card figcaption span {
+  max-width: 170px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+  text-align: right;
+}
+
+.ip-character path,
+.ip-character rect,
+.ip-character circle,
+.ip-character ellipse {
+  vector-effect: non-scaling-stroke;
+}
+
+.ip-body-layer,
+.ip-arm-layer,
+.ip-leg-layer,
+.ip-face-layer,
+.ip-deco-layer,
+.tea-cup {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.ip-body-layer {
+  animation: ipBreath 2.8s ease-in-out infinite;
+}
+
+.ip-shadow {
+  fill: rgba(28, 33, 28, 0.18);
+}
+
+.ip-body,
+.ip-belly,
+.ip-hat,
+.ip-leaf,
+.ip-spark,
+.ip-bubble,
+.tea-cup rect,
+.tea-cup path {
+  stroke: var(--ink);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ip-body {
+  fill: #4fdc98;
+  animation: ipBodyPop 0.82s var(--elastic-soft) both;
+}
+
+.ip-belly {
+  fill: #fff766;
+  animation: ipBodyPop 0.82s var(--elastic-soft) 0.12s both;
+}
+
+.ip-hat {
+  fill: #ff65b2;
+  animation: ipHatWiggle 3.4s ease-in-out infinite;
+}
+
+.ip-hat-line,
+.ip-mouth,
+.ip-arm,
+.ip-leg,
+.tea-steam {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ip-eye {
+  fill: var(--ink);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ipBlink 4.6s infinite;
+}
+
+.eye-right {
+  animation-delay: 0.08s;
+}
+
+.ip-blush {
+  fill: #ff8aa8;
+  opacity: 0.72;
+}
+
+.ip-arm {
+  animation: ipArmWave 2.2s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: top center;
+}
+
+.arm-left {
+  animation-delay: 0.22s;
+}
+
+.ip-leg {
+  animation: ipLegBounce 2.8s ease-in-out infinite;
+}
+
+.tea-cup {
+  animation: teaFloat 2.4s ease-in-out infinite;
+}
+
+.tea-cup rect {
+  fill: #55b8ff;
+}
+
+.tea-cup path {
+  fill: none;
+}
+
+.tea-steam {
+  stroke-width: 4;
+  opacity: 0.72;
+  animation: steamRise 2.2s ease-in-out infinite;
+}
+
+.steam-2 {
+  animation-delay: 0.35s;
+}
+
+.ip-spark,
+.ip-bubble,
+.ip-leaf {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ipDecoFloat 3.5s ease-in-out infinite;
+}
+
+.ip-spark {
+  fill: #fff766;
+}
+
+.ip-bubble {
+  fill: #55b8ff;
+}
+
+.ip-leaf {
+  fill: #4fdc98;
+}
+
+.spark-1 { animation-delay: 0.2s; }
+.spark-2 { animation-delay: 0.5s; }
+.bubble-1 { animation-delay: 0.8s; }
+.bubble-2 { animation-delay: 1.1s; }
+.leaf-1 { animation-delay: 1.4s; }
+.leaf-2 { animation-delay: 1.7s; }
+
+.ip-character-card:hover .ip-body-layer {
+  animation: ipHoverSquash 0.68s var(--elastic-soft), ipBreath 2.8s ease-in-out 0.68s infinite;
+}
+
+.ip-character-card:hover .arm-right {
+  animation: ipBigWave 0.72s var(--elastic-soft);
+}
+
+@keyframes ipCardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(28px) rotate(-2deg) scale(0.86);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(-6px) rotate(1deg) scale(1.04);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0) scale(1);
+  }
+}
+
+@keyframes ipBodyPop {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.82, 0.74);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(-6px) scale(1.08, 0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes ipBreath {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-5px) scale(1.025, 0.985); }
+}
+
+@keyframes ipHoverSquash {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.12, 0.88); }
+  72% { transform: scale(0.96, 1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes ipBlink {
+  0%, 88%, 94%, 100% { transform: scaleY(1); }
+  91% { transform: scaleY(0.08); }
+}
+
+@keyframes ipArmWave {
+  0%, 100% { transform: rotate(0); }
+  50% { transform: rotate(8deg); }
+}
+
+@keyframes ipBigWave {
+  0% { transform: rotate(0); }
+  34% { transform: rotate(-18deg); }
+  68% { transform: rotate(14deg); }
+  100% { transform: rotate(0); }
+}
+
+@keyframes ipLegBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+@keyframes ipHatWiggle {
+  0%, 100% { transform: rotate(0); }
+  50% { transform: rotate(-2deg); }
+}
+
+@keyframes teaFloat {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-5px) rotate(-1deg); }
+}
+
+@keyframes steamRise {
+  0% { opacity: 0; transform: translateY(8px); }
+  45% { opacity: 0.78; }
+  100% { opacity: 0; transform: translateY(-12px); }
+}
+
+@keyframes ipDecoFloat {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-10px) rotate(6deg); }
+}
+
+@media (max-width: 620px) {
+  .ip-character-card {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .ip-character-card figcaption {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .ip-character-card figcaption span {
+    max-width: none;
+    text-align: left;
+  }
+}
