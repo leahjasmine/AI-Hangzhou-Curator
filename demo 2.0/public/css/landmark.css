@@ -1,0 +1,315 @@
+.city-mascot {
+  position: relative;
+  width: min(440px, 96%);
+  margin: -18px auto 0;
+  padding: 22px 22px 18px;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  background: rgba(255, 253, 245, 0.76);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  backdrop-filter: blur(18px);
+  animation: mascotEnter 0.9s var(--elastic-soft) both;
+  animation-delay: 0.28s;
+}
+
+.city-mascot::before {
+  position: absolute;
+  inset: 18px;
+  content: "";
+  border: 1px dashed rgba(28, 33, 28, 0.16);
+  border-radius: 24px;
+  pointer-events: none;
+}
+
+.city-wordmark {
+  position: absolute;
+  left: 18px;
+  top: 12px;
+  z-index: 2;
+  display: flex;
+  gap: 0;
+  font-family: var(--display-font);
+  font-size: clamp(58px, 7vw, 92px);
+  line-height: 0.86;
+  letter-spacing: -0.18em;
+  color: rgba(28, 33, 28, 0.92);
+  transform: rotate(-3deg);
+  pointer-events: none;
+}
+
+.city-wordmark span {
+  display: inline-block;
+  transform-origin: bottom center;
+  animation: wordmarkBounce 3.4s var(--elastic-soft) infinite;
+}
+
+.city-wordmark span:nth-child(2) {
+  animation-delay: 0.16s;
+}
+
+.hangzhou-landmark {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  min-height: 260px;
+  filter: drop-shadow(0 18px 22px rgba(28, 33, 28, 0.12));
+}
+
+.city-mascot figcaption {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: -10px;
+  color: var(--muted);
+}
+
+.city-mascot figcaption strong,
+.city-mascot figcaption span {
+  display: block;
+}
+
+.city-mascot figcaption strong {
+  color: var(--ink);
+  font-family: var(--display-font);
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: -0.08em;
+}
+
+.city-mascot figcaption span {
+  max-width: 220px;
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: right;
+}
+
+.hangzhou-landmark path,
+.hangzhou-landmark rect,
+.hangzhou-landmark circle {
+  vector-effect: non-scaling-stroke;
+}
+
+.tower-group,
+.lotus-group,
+.water-group,
+.mascot-deco {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.tower-shadow {
+  fill: rgba(28, 33, 28, 0.16);
+}
+
+.tower-base,
+.tower-floor,
+.tower-roof,
+.tower-tip {
+  fill: #fffdf5;
+  stroke: var(--ink);
+  stroke-width: 5;
+  stroke-linejoin: round;
+}
+
+.tower-base {
+  fill: var(--sun);
+}
+
+.floor-1 { fill: #f7e2a3; animation-delay: 0.26s; }
+.floor-2 { fill: #dfe8c6; animation-delay: 0.34s; }
+.floor-3 { fill: #d9e7e3; animation-delay: 0.42s; }
+.floor-4 { fill: #fff3c7; animation-delay: 0.50s; }
+.tower-roof { fill: #f3d88d; animation-delay: 0.58s; }
+.tower-tip { fill: var(--accent); animation-delay: 0.66s; }
+
+.tower-base,
+.tower-floor,
+.tower-roof,
+.tower-tip {
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  animation: landmarkPartPop 0.82s var(--elastic-soft) both;
+}
+
+.tower-line {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 220;
+  stroke-dashoffset: 220;
+  animation: drawLine 1.2s var(--smooth-out) 0.78s both;
+}
+
+.lotus {
+  stroke: var(--ink);
+  stroke-width: 5;
+  stroke-linejoin: round;
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  animation: petalPop 1s var(--elastic-soft) both, petalFloat 4.4s ease-in-out infinite;
+}
+
+.lotus-left { fill: #d9e7e3; animation-delay: 0.48s, 1.5s; }
+.lotus-mid { fill: #dfe8c6; animation-delay: 0.56s, 1.7s; }
+.lotus-right { fill: #f3d88d; animation-delay: 0.64s, 1.9s; }
+
+.water-line {
+  fill: none;
+  stroke: var(--accent-strong);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-dasharray: 18 16;
+  animation: waterMove 3.2s linear infinite;
+}
+
+.water-b {
+  opacity: 0.62;
+  animation-direction: reverse;
+}
+
+.deco-dot,
+.deco-star,
+.deco-chip {
+  stroke: var(--ink);
+  stroke-width: 4;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: decoPop 0.76s var(--elastic-soft) both, decoWiggle 3.6s ease-in-out infinite;
+}
+
+.deco-dot { fill: var(--accent); }
+.deco-star { fill: var(--sun); }
+.deco-chip { fill: var(--canal); }
+.dot-a { animation-delay: 0.52s, 1.4s; }
+.dot-b { animation-delay: 0.68s, 1.7s; }
+.star-a { animation-delay: 0.74s, 1.8s; }
+.star-b { animation-delay: 0.86s, 2s; }
+.chip-a { animation-delay: 0.94s, 2.2s; }
+.chip-b { animation-delay: 1.02s, 2.4s; }
+
+.city-mascot:hover .tower-group {
+  animation: mascotHover 0.72s var(--elastic-soft);
+}
+
+.city-mascot:hover .city-wordmark span {
+  animation: wordmarkHover 0.62s var(--elastic-soft);
+}
+
+@keyframes mascotEnter {
+  from {
+    opacity: 0;
+    transform: translateY(34px) scale(0.9) rotate(1deg);
+  }
+  65% {
+    opacity: 1;
+    transform: translateY(-7px) scale(1.025) rotate(-1deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0);
+  }
+}
+
+@keyframes landmarkPartPop {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.84, 0.72);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.06, 0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes petalPop {
+  from {
+    opacity: 0;
+    transform: rotate(-8deg) translateY(26px) scale(0.72);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0) translateY(0) scale(1);
+  }
+}
+
+@keyframes petalFloat {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-6px) rotate(1.5deg); }
+}
+
+@keyframes drawLine {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes waterMove {
+  to { stroke-dashoffset: -68; }
+}
+
+@keyframes decoPop {
+  from {
+    opacity: 0;
+    transform: scale(0) rotate(-16deg);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.18) rotate(8deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes decoWiggle {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-7px) rotate(4deg); }
+}
+
+@keyframes wordmarkBounce {
+  0%, 82%, 100% { transform: translateY(0) scale(1); }
+  88% { transform: translateY(-8px) scale(1.06, 0.96); }
+  94% { transform: translateY(2px) scale(0.96, 1.04); }
+}
+
+@keyframes wordmarkHover {
+  0% { transform: scale(1); }
+  44% { transform: scale(1.12, 0.92); }
+  72% { transform: scale(0.96, 1.04); }
+  100% { transform: scale(1); }
+}
+
+@keyframes mascotHover {
+  0% { transform: translateY(0) scale(1); }
+  45% { transform: translateY(-8px) scale(1.04, 0.98); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 620px) {
+  .city-mascot {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .city-wordmark {
+    font-size: 58px;
+  }
+
+  .city-mascot figcaption {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .city-mascot figcaption span {
+    text-align: left;
+  }
+}
